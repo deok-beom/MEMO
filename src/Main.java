@@ -99,7 +99,7 @@ public class Main {
                         case 2:
                             System.out.println("--------------------------------------------------------------------------------------------------------");
                             String password = writePassword(inputSC);
-                            if (b7Memo.permissionCheck(index, password)) {
+                            if (b7Memo.checkPermission(index, password)) {
                                 String title = writeTitle(inputSC);
                                 String contents = writeContents(inputSC);
                                 b7Memo.updateMemo(index, title, contents);
@@ -110,7 +110,7 @@ public class Main {
                         case 3:
                             System.out.println("--------------------------------------------------------------------------------------------------------");
                             password = writePassword(inputSC);
-                            if (b7Memo.permissionCheck(index, password)) {
+                            if (b7Memo.checkPermission(index, password)) {
                                 b7Memo.deleteMemo(index);
                             } else {
                                 System.out.println(" 비밀번호가 틀립니다. ");

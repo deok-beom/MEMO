@@ -1,23 +1,26 @@
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class MemoArchive {
-    private List<Memo> memosList;
+    private List<Memo> memoList;
     private HashMap<String, User> users;
 
     public MemoArchive() {
-        this.memosList = new ArrayList<>();
+        this.memoList = new ArrayList<>();
         this.users = new HashMap<>();
     }
 
     public String getMemoList() {
         StringBuilder listBuilder = new StringBuilder();
 
-        if (this.memosList.size() == 0) {
+        if (this.memoList.size() == 0) {
             listBuilder.append("메모가 텅 비었습니다.");
         }
 
-        for (int i = 0; i < memosList.size();) {
-            Memo singleMemo = memosList.get(i);
+        for (int i = 0; i < memoList.size(); ) {
+            Memo singleMemo = memoList.get(i);
             User writer = users.get(singleMemo.getWriterId());
             listBuilder.append(String.format("%d. %s : %s [%s]%s", ++i, singleMemo.getTitle(), writer.getName(), singleMemo.getUpdateDate(), System.lineSeparator()));
         }
@@ -26,11 +29,11 @@ public class MemoArchive {
     }
 
     public boolean readMemo(int index) {
-        if (index >= memosList.size()) {
+        if (index >= memoList.size()) {
             System.out.println(" 잘 못 입력하였습니다. ");
             return false;
         } else {
-            Memo targetMemo = memosList.get(index);
+            Memo targetMemo = memoList.get(index - 1);
             System.out.println(String.format("제목 : %s", targetMemo.getTitle()));
 
             User writer = users.get(targetMemo.getWriterId());
@@ -44,20 +47,20 @@ public class MemoArchive {
     public void addMemo(String writerId, String title, String contents, String password) {
         String memoId = UUID.randomUUID().toString();
         Memo newMemo = new Memo(memoId, writerId, title, contents, password);
-        memosList.add(newMemo);
+        memoList.add(newMemo);
     }
 
     public void updateMemo(int index, String title, String contents) {
-        Memo targetMemo = memosList.get(index - 1);
+        Memo targetMemo = memoList.get(index - 1);
         targetMemo.editMemo(title, contents);
     }
 
     public void deleteMemo(int index) {
-        memosList.remove(index - 1);
+        memoList.remove(index - 1);
     }
 
-    public boolean permissionCheck(int index, String password) {
-        Memo targetMemo = memosList.get(index - 1);
+    public boolean checkPermission(int index, String password) {
+        Memo targetMemo = memoList.get(index - 1);
         if (targetMemo.getPassword().equals(password)) {
             return true;
         } else {

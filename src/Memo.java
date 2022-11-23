@@ -2,9 +2,8 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Memo {
-    private int memoIdx;
-    private String writerId;
-    private String memoId;
+    private String writerID;
+    private String memoID;
     private String password;
     private String contents;
     private String title;
@@ -12,9 +11,8 @@ public class Memo {
     private OffsetDateTime updateDate;
 
     public Memo(String memoId, String writerId, String title, String contents, String password) {
-        this.memoIdx = 1;
-        this.memoId = memoId;
-        this.writerId = writerId;
+        this.memoID = memoId;
+        this.writerID = writerId;
         this.password = password;
         this.title = title;
         this.contents = contents;
@@ -43,7 +41,7 @@ public class Memo {
     }
 
     public String getWriterId() {
-        return this.writerId;
+        return this.writerID;
     }
 
     public void editMemo(String newTitle, String newContents) {
