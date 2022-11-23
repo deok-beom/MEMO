@@ -29,7 +29,7 @@ public class MemoArchive {
     }
 
     public boolean readMemo(int index) {
-        if (index >= memoList.size()) {
+        if (index > memoList.size()) {
             System.out.println(" 잘 못 입력하였습니다. ");
             return false;
         } else {

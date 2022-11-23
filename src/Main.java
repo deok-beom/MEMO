@@ -18,7 +18,7 @@ public class Main {
         b7Memo.addMemo(user2.getUserID(), "프로젝트 테스트 케이스를 위한 글입니다.", "테스트는 잘 진행이 되어가고 있나요?", "memo2");
         b7Memo.addMemo(user3.getUserID(), "언제나 어디서나", "피카츄가 옆에 있어", "memo3");
 
-        System.out.println("안녕하세요");
+        System.out.println("안녕하세요. 메모장입니다📝");
         User user;
         {
             System.out.println("--------------------------------------------------------------------------------------------------------");
@@ -36,7 +36,7 @@ public class Main {
             System.out.println("--------------------------------------------------------------------------------------------------------");
             String memoList = b7Memo.getMemoList();
 
-            if (!(memoList == null || memoList.trim().equals("메모가 텅 비었습니다."))) {
+            if (memoList == null || !(memoList.trim().equals("메모가 텅 비었습니다."))) {
                 System.out.println("어떤 작업을 할까요?");
                 System.out.println(String.format("0. 새 글 작성하기%s", System.lineSeparator()));
 
