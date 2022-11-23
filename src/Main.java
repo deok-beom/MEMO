@@ -28,6 +28,7 @@ public class Main {
             System.out.print(" PASSWORD : ");
             String password = inputSC.next();
             user = new User(UUID.randomUUID().toString(), userID, password);
+            b7Memo.addUser(user);
         }
 
         program:
@@ -35,7 +36,7 @@ public class Main {
             System.out.println("--------------------------------------------------------------------------------------------------------");
             String memoList = b7Memo.getMemoList();
 
-            if (!(memoList.trim().equals("메모가 텅 비었습니다.") || memoList == null)) {
+            if (!(memoList == null || memoList.trim().equals("메모가 텅 비었습니다."))) {
                 System.out.println("어떤 작업을 할까요?");
                 System.out.println(String.format("0. 새 글 작성하기%s", System.lineSeparator()));
 
@@ -169,7 +170,7 @@ public class Main {
 
     private static void jump() {
         for (int i = 0; i < 30; i++) {
-            System.out.println("");
+            System.out.println(System.lineSeparator());
         }
     }
 }
