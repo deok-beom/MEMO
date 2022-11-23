@@ -4,7 +4,7 @@
 ## 프로젝트를 시작하는 방법
 - 사용한 SDK: Eclipse Temurin version 11.0.16
 - Temurin 설치: https://adoptium.net/temurin/releases/
-
+Cancel changes
 ## 프로그램 사용 방법
 - 콘솔에 출력되는 정보들을 보고 적절한 행동들을 할 수 있다.
 - 저장된 메모들의 목록을 볼 수 있다.
@@ -22,3 +22,5 @@
 - 정렬 기능 (특정 글쓴이로 정렬, 갱신된 순서로 정렬, 작성된 순서로 정렬 등)
 - 댓글, 댓글의 댓글 기능
 - 유저 정보를 저장하는 기능 (회원가입 기능)
+
+프로젝트 정리: https://www.notion.so/4-2e595776f95f4c2fb0ab90d2ea794bc8#a8891797586842e386d0193d72f9b57d
